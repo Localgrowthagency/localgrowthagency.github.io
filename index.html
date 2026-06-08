@@ -469,12 +469,12 @@ html{scroll-behavior:smooth}
 <div class="cta-section" id="audit">
   <h2>See what your profile is missing</h2>
   <p>Free audit — no commitment, no pressure. We show you exactly what's costing you customers before you spend a dollar.</p>
-  <div class="form-wrap">
-    <input type="text" placeholder="Your name">
-    <input type="text" placeholder="Business name">
-    <input type="tel" placeholder="Phone number">
-    <input type="email" placeholder="Email address">
-    <select>
+  <form class="form-wrap" action="https://formspree.io/f/mzdqrqan" method="POST">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="text" name="business" placeholder="Business name" required>
+    <input type="tel" name="phone" placeholder="Phone number" required>
+    <input type="email" name="email" placeholder="Email address" required>
+    <select name="industry" required>
       <option value="" disabled selected>Select your industry</option>
       <option>Coffee / Cafe / Bakery</option>
       <option>Laundromat / Wash & Fold</option>
@@ -487,15 +487,15 @@ html{scroll-behavior:smooth}
       <option>Retail / Boutique</option>
       <option>Other</option>
     </select>
-    <select>
+    <select name="plan" required>
       <option value="" disabled selected>Which plan interests you?</option>
       <option>Growth — $650/mo (90-day lock-in)</option>
       <option>Growth — $800/mo (month-to-month)</option>
       <option>Scale — $2,500/mo (full-stack)</option>
       <option>Not sure — just want the free audit</option>
     </select>
-    <button class="btn-submit">Get my free audit — no commitment &rarr;</button>
-  </div>
+    <button type="submit" class="btn-submit">Get my free audit — no commitment &rarr;</button>
+  </form>
 </div>
 
 <!-- FOOTER -->
