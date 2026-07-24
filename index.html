@@ -521,7 +521,8 @@ html{scroll-behavior:smooth}
 
 <script>
 (function(){
-  var WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/28345056/44fx3hc/";
+  // Replaced Zapier with free FormSubmit AJAX endpoint directly to your email
+  var WEBHOOK_URL = "https://formsubmit.co/ajax/thelocalgrowthagency@gmail.com";
   var TOTAL_STEPS = 7;
   var currentStep = 1;
   var OPTIONAL_FIELDS = ["phone"];
@@ -607,6 +608,11 @@ html{scroll-behavior:smooth}
     ["firstName","lastName","email","phone","businessName","industry","monthlyRevenue","interestedPath"].forEach(function(name){
       data[name] = form.elements[name] ? form.elements[name].value.trim() : "";
     });
+    
+    // Add specific fields required by FormSubmit to make it clean
+    data['_subject'] = "New Growth Audit Application!";
+    data['_captcha'] = "false"; // Turns off the annoying picture puzzle
+    
     return data;
   }
 
@@ -652,13 +658,20 @@ html{scroll-behavior:smooth}
     backBtn.disabled = true;
     nextBtn.textContent = 'Submitting...';
 
+    // The new direct-to-email fetch setup
     fetch(WEBHOOK_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
       body: JSON.stringify(data)
     })
+    .then(function(response) {
+       return response.json();
+    })
     .catch(function(err){
-      console.error('Webhook submission error:', err);
+      console.error('Submission error:', err);
     })
     .finally(function(){
       handlePostSubmit(data);
