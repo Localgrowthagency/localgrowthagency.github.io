@@ -147,19 +147,17 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 1
 .bg-light{background:#F7F8FA}
 
 /* PROBLEM */
-.signal-tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
-.signal-tag{font-size:12px;font-weight:600;color:#B91C1C;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:20px;padding:6px 12px;white-space:nowrap}
-.problem-punch{font-size:14.5px;color:#4A5568;line-height:1.6;margin-bottom:20px}
+.problem-punch{font-size:14.5px;color:#4A5568;line-height:1.6;margin-top:20px;text-align:center}
 .problem-punch b{color:#0B1F3A;font-weight:800}
 .problem-grid{display:grid;grid-template-columns:1fr;gap:16px}
 .problem-col{border-radius:12px;overflow:hidden;border:1px solid #E2E8F0}
 .col-head{padding:14px 18px;font-size:13px;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px}
 .col-head.bad{background:#DC2626}
 .col-head.good{background:#0E8A7A}
-.col-item{display:flex;align-items:flex-start;gap:10px;padding:11px 18px;font-size:13px;color:#4A5568;line-height:1.5}
+.col-item{display:flex;flex-direction:column;gap:2px;padding:11px 18px;font-size:13px;color:#4A5568;line-height:1.5}
+.col-item b{color:#1a1a1a;font-size:13.5px;font-weight:700}
+.col-item span{color:#8A94A6;font-size:12.5px}
 .col-item:nth-child(even){background:#F7F8FA}
-.lever-recap{max-width:480px;margin:32px auto 0}
-.col-icon{font-size:14px;font-weight:900;flex-shrink:0}
 
 /* PROCESS */
 .process-track{display:grid;grid-template-columns:1fr;gap:0}
@@ -175,6 +173,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 1
 .svc{position:relative;background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px;border-left:3px solid #D4A843;border-top-left-radius:0;border-bottom-left-radius:0}
 .svc-num{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:50%;background:#0B1F3A;color:#D4A843;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
 .svc i{font-size:20px;color:#D4A843;display:block;margin-bottom:10px}
+.svc-emoji{font-size:24px;display:block;margin-bottom:10px;line-height:1}
+.lever-framing{font-size:14px;font-weight:600;color:#0B1F3A;background:#FFF9EC;border:1px solid rgba(212,168,67,.35);border-radius:10px;padding:14px 18px;margin:18px 0 28px;line-height:1.6}
 .svc-title{font-size:13px;font-weight:700;color:#0B1F3A;margin-bottom:4px}
 .svc-desc{font-size:12px;color:#64748B;line-height:1.5}
 
@@ -546,7 +546,7 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
 <div class="hero">
   <div class="hero-label">Google Business Profile Specialists &bull; Hundreds of Local Businesses Optimized</div>
   <h1>Stop Losing Customers to Competitors <span>Ranking Above You</span> on Google Maps</h1>
-  <p>We fully manage and optimize your Google Business Profile so you rank higher, generate more phone calls, and win more customers from Google Maps.</p>
+  <p>We optimize and manage your Google Business Profile so more local customers find you, call you, and choose your business instead of your competitors.</p>
 
   <div class="hero-btns">
     <button class="btn-gold" onclick="document.querySelector('#audit').scrollIntoView({behavior:'smooth'})">Get My Free Growth Audit &rarr;</button>
@@ -634,11 +634,6 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
       <div class="metric-card-stat">175<span>Website Clicks</span></div>
     </div>
     <div class="metric-card">
-      <div class="metric-card-title">Searches</div>
-      <img class="metric-card-img" src="data:image/webp;base64,UklGRlYPAABXRUJQVlA4IEoPAAAwSwCdASpTAnMAPmEulEekIiIhIrCpgIAMCWlu4XaxG/O38q/zPsi/m/5Beb/4b8d/X/yl/tOiP/Evqh9i/uX7Tf231k/wvgD8Gf6/1Avxn+K/1H8mf6xwhUAHsC+o/07+8f3X9vP8V5w371/Sf3I9yfxz+w/2v3AP4l/Nv8R+b3vr/Xv9V4u32j/PewB/If7N/vP71+SP0gfwf/K/x392/6f+v9l/5T/a/9r/cf81+y/2CfyT+cf6H+5/5r/4/4r/////7uvZ7+3vsgfsR//xTLJfV0kWcPC/u8mF/d5ML+7yYX93kwv7LSFUX+IqIaNC1zChUXx9ERcKyyLhWWRcKyyPI9zuKI/MyA/s0v7aoVF8fREXCssi4VlkXjIB4YfrqzZnQrOulg1vNuGWG0YoLYRhS4jBNUSgekCnx9ERcKyyLhWWRcLZPl/wE1cxj4HUDdf0PlSW3krqPSwfvjhox0Ki+PoiLhWWRcKyy/oXxjzZUVaV+q1No0YMCvvgMPe2yGXU9sHwhgIB0EHZW1MiW2/m1O+CmCsjgK4xl5vaPPDfZI1XlPxl+gT+rTKIoMVfHmW/0CCF7sNaNZUC9NbsUUDnfio1quyPhNFfBTHjedkFjUpsIKRULOUGjAXRoS4YkUvBxEr+wWsAQE6vXf5BMubXNkYXxqjLgYw1j+OUzxToU6rWsgdJVZCIMc1ns6UVZbkoeECxQpQRHnuTtJXozIqy1kfZQl84O9vj/mE7pyPngFyuJ1ItK6DWfzJtPMAwxIopjAKnAZKNHOKKROtAUKyyLjLUXzzJrP9lygFaE7cAAP72uIf4NNOVKbpMz0Z2zKHboR4GN1Pk5AqC+H/mFsA6BVBemiJFQQwAD1jbPOVYH3AY+/pua2GkmXb1tm++gy47s5Ztc+Vf2YyINaAjD5+o7ueu5XekcS9V9PDEBfQGfCdaTYFOd5T6GJtdWDRpWSqWS179UeHiJVOBqPfCnleSqHKdRZCemHcps0SjXy/nEHJvYtzOppcTD23hk0YEpYo5qDvUbj7KOjWDs1CN1AI7YiVjhdVlsvrSYKB64ej3mrODVdl+rF4IJ78f/duPh7kgSRnAjEU0/sY/SGNPZ8TtRe0zTuc2HfGov8fbfuoYhrvkVJ4zsAfrd77KOr4/ikZuf51sFSOo7hIXBKB+UnzP1T6nsza0d8thvTmWlloHbLmhjT2fE7UPV+nKWegq72RJufH+V0J2+/iMSSsIpt/EadI5FcJRtW8yZXPv7iKWSs1LjrWT4lV+OYaeXATQWEqzYrEmWFEt7cAPLsShzr2P5UugEJTA8nRlE7xxl+EMTdnMr2PadWaRhciLr66SoUZVSvWdDaFwnmYEgWV3GDrc4zJbeHOG9ArGusqZDpjqdoYT7KQWtjeeSeJpA/g657tGrvqxay6ThIhFNPwc1G3wpvfcYrzEp3u+GISo8fGdmLVj2L4mUdP4drTj2RMDGaSS2lRFT0V4YR7Dgv0tzuxfYqrXSMfc9gug1iOELWT0HmTiQQb5TYqLL5PNmSznhRBMB2RMDGaSVVINc9EXpDK6GBAR3qb2XzbCiO+a9LTWyhO+GiD79BaIkgrp6Lod3mBHBhkzPvom+1Byr3MhJFVkevGr9Cr+nqj2jtFvMl6aKLkzP+ZWolmsq0AJJxFp1KnfKkSMPvjIOt/xn5/LHiIomi/l3gcs+4+4cOtNx8qjM7T8HnB9Yv1P713JzBablbr4A+G5CEpTwEzp13h39fYA3dOaLRNBpJeTHZ9VfIK1yAi3NqV1aFaQ6UnBJvugcKIA0Rc+Wi+bkoLTxsYJcaido6soD+CYVvxnm7s8BZf20yUF5j+IfCNzuUsc6op4+yg4Plq3sHyFkfb3Modi92YU0Ii2XLWaBUdzNfakoCR/A0noMnbzwZb+8sD++9329HQ7lF6qbh69J4a6m70evudGlRgjWh9J3Y9UqXRWGsCl34h+kY/AITQQIgITRWdthJVKPa4w5EcwlCFy+ibUjVQZpIa9Zz2HtF8GMKLKiO3MVubkXTGd5EwKIoLyT8HSOMEuKe5200kBtsJC2YRx8BvWIYo3glaW1XQk8RkSBFM2lUPoMFu11V5WUYH4Nm62zE4rpRZ7RcYOtfPKVIWDiAB6XERqcPJYpKxUm1B30fp1Q7cuKbMJWHcuhSoGl/i16wI77iqi9SMBKOxDTBZIMcCFbRym7ndyOYZTx7doa8KKwazbwnActO0ePbSqcTV+AGi+fDUiGh6B06yLzg1Pk9HSQCC5YK2Dxt01KL/1CEsPU0bqU6Clgs9QvC1yVp+0GCTdSU3yIMYt2nDAjUdTVjxRIYd6ybr2Ruhx3KNfn2QQIJY3Ouszk11pDx60MZn0BxWHUeFjFVFBHYqkbBo2+++wqL+2rCZNXxFTuFqp87l8n+GcVo/c0dPZDfOv7GF8ymN9LUt9G1a36Ecg7hqel7A4FuYfVMXB4NsTlPleFE2MXZsqdoFO5EdYNZk5BliAgQaVOAunMvsnwAbw75hNPXrZD78gdJvaeeU7tXbImNzFy963QfQEj9NLI3gcRbUEQ5JJhKXAz8TdD8DnB/EI98X7tqtAn4FdJ5s8ptOuDR5FnB2PLZ1M60/lWHjgNsKdaZIHXl4urnUbrInCyAl4xK2xvoCEhf7ZlPaf64b7/q3w1t6630RYKbhlOel7S9POg/RDiJwiP/4cBwHZI8SpHn3Jd8VmXO1ZNzt3nWBhjfAf8gTf5ohiOCdxpESleL9mRfLHIY8PbMMCvmXyOn/muGmCA1x2vrbKtKZHPHENnM0a7d/hBfyGux9syU1AeR/TFW1aEZa1u5UF2pjFFi0t2kEUyUxNFbRCeyPTb1Iy5hAhvLQUhGtzpVlK0Nt+w6ki8zKd+wrgzi6CXf3FWB4/v01+vtnomeg9oJU2EfyyPe1nrMxIXTPhdLqcHRKA2X566VDLcFRkU1dTcXLlXqtRujxEtknFy8vQETPTfEHU23zQRbH4sn10GEmmJ+cuLgHeQ1m36vLftV6I0l0W0VgSNavBFsrbu6oei6N/1PlcCTsNkQ2Vqqw8l4M54/9UIGMuQhgZu7a1qEQL9eFxyarmfB6VCa/m46wKIviweS/ei0UY/jPec5k/kpKDBciScKA+vRIEIynESDEXYatarcOuOM9J9BuKfBr4V+H8Uj7J+JaKJfggCL3f/npLbeA/V1xWHsmVDCea41mJUNueCrYnK0VUYT4QA6LshHhAcRxPphDC/qKv4qTSiOo/zEZIPxjLP0WNt1lSyj/2VwyJ1D4Lo70ZGn4dTrtrNu83oLRy8KDrpmVqKK+kSEltpJDJPaXpVn39/g65Gg50WaWmbbMPUFKK/UARIsUSkjkFXVx9WryYj6/hsa1SI5d+VCB0yOkQItMuv+PtsKxzhnX3uaiE7nyJRF/05vN56bXDLGQqZoSwKVOHtpabDVsS0piLyI5i1Et9sfTjprPcQVBVHU997/S5bQi4+xfHnGxAd8HuJzZYUzF7ixkj7MUKnpyu4Y7C/zf2rqLqVdqO0R3275ikPhfutS3gB4IlYFNEqDmzLMu9pUMK/1o56aMYsjqnYUYdp74pTpCFkkCmQ+Mpas7ZDd8PMml/JhW+z908vx754Pk1WXOg/E3fF2B4IdbCaZTmvbH5siD+//SbGioW1vuJvFTYj6xdSPc95h6IB0S+6DfxaoK3HOwcqESRa93fqi7Fnl7D0a4yTz5oeJvgReFIRXHY6+JMbHGcjOyy1pThHqgNnE1szNQ6YHYdqSPsZPbOfDWN2jeMh1r2SEt1UKTIfgeLYUmN6umB8ulTA4Vr9Zwn2//ZvCLnYqbSoHLAHaw7t3ul0rSv/7G3e1y1D3kDcyHhyoYWKophq6aXnXzJPs3h3EckXUfdlUGtMhZWBkF5Hl2qg2UGjNGRJRWFWbFbJULGsG0g2Ew+GGkXVGS0dG9Eum+lQSV+2XshhTPYugUbb1NeNzB/4Jhm6L9lsVTY9GwsTELnPqPp04UkhcQOeawt8HaNLgX8fZrcURWyEw9WaB00sJSuIp2ueuiSgiruK4uw0e3YydAksTuKeRnBCWAJyIV8nlxc3q4/nmkfOTjKNtE0fFRpAkksCGMbnnQxY4r8yTETfyvjPtqcl+N8mbSnUT9qpVuP8EBBT1KZ3zJUDc+wpu3P5iocrmy7PMntMc9bZu+xYMZKKyMvopVDcgWtOFgjpxcK1cymHFid8e/ZflZ4oViIETpnZzg3oMJ3xDyXYRtyuf6G/xMxEXfdc59BT1ENDxZNPUYNmmNgkp/rzJyAWtNJhexA993bihuMIkucUEsGOHgbPXQzQ6UFiLie9U41dw4yjflegSueomkURKHIwZAFqPGjzD4Ipnx5NWf/jSC2aEul9aq/Vwqby5btPM0xUNSi3mMdmCGMIqfP49rCTfvru4PP5TcM6jKvD4ZQ1OI1g7UC+WOxi3UCXF8eQhCC38ipCkkhRrd5SQK0V/xsCJxI3U9YRO4w4E2ebeFPQ3RrjMxGJIgwFwACwY/7Fx1AAoABENpbhdR/eXa6g46TPBzEAbTemfbKEtuo19ubi/oZXz3VmtRZY1lHlaRzZ+A8dCwlNoNiWE5n8l7NTgHfZME7MRAhYuWDBblPSnimWDEpsCLBZORcjcQT5WCNoLe9zorYAgDESGdYRy8AzHfQRmzqmwVcxrTXCiI4vOTtGv2gqOO4qIqvp+tsmCctQgPvvqKldWoexoFHl3xuXdvtsOei8YaBYB/ez3KEGKZ8Tc+ZZuTcUb5vl2tY5B5zE+/Dm88VN/ccDRyeOk+niXNYZ/QJSXdneUWcQ7u2YGo+uZX1v1S2zP/bV74W5Jk0AJrc8Rh0MRD5E7e+T8mkzMbDmpE38Ib7lrkx517tnZGxDiS9WJx8WNMK/S21+CvOytX8JJN3NrKKRUC38luqxxxRmTkPwnaa5uTfzIAgRCjPMwRA0oQ8F33xxiEetTdGeeg0L+AjUBf6TWM579d5VNTpzVZY0vldRLaCz0TJ7+vrcJCEBoetzp6V86Ubjds9w6gJE/kr1MxNs8A4JZSr8p5CuLc/4on6itGDr/hUTdppwn2O67Mh0qpnlNmUh2/5+1nKSBjfUH5+GnGSH+Zl/EOtjuF/QJxydDdSofSRNvvd6ont5xYSsvh45vbAMYcdB9GtFoq8jwUsTs7sWDPoRhFiHbvfPsT53FS/9rNgjLdzHjgz0AAAAA==" alt="Google Business Profile Searches screenshot" loading="lazy" decoding="async">
-      <div class="metric-card-stat">1,166<span>Searches</span></div>
-    </div>
-    <div class="metric-card">
       <div class="metric-card-title">Profile Views</div>
       <img class="metric-card-img" src="data:image/webp;base64,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" alt="Google Business Profile Profile Views screenshot" loading="lazy" decoding="async">
       <div class="metric-card-stat">4,767<span>Profile Views</span></div>
@@ -652,71 +647,86 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
   </div>
 </div>
 
-<!-- INSTANT TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-headline">Real Client Results</div>
-  <div class="trust-items">
-    <div class="trust-item"><span class="trust-check">&#10003;</span>Google Business Specialists</div>
-    <div class="trust-item"><span class="trust-check">&#10003;</span>Ongoing Monthly Management</div>
-    <div class="trust-item"><span class="trust-check">&#10003;</span>No Long-Term Contracts</div>
-    <div class="trust-item"><span class="trust-check">&#10003;</span>Free Video Audit</div>
-  </div>
-</div>
-
 <!-- PROBLEM -->
 <div class="section" id="services">
   <div class="section-label">THE PROBLEM</div>
-  <h2>Why Businesses Lose Customers Every Day</h2>
-  <p class="lead">Even if you're the best business in town, Google won't rank you just because you deserve it. Instead, Google looks at hundreds of local ranking signals like:</p>
-  <div class="signal-tags">
-    <span class="signal-tag">&#10060; Category relevance</span>
-    <span class="signal-tag">&#10060; Review quality</span>
-    <span class="signal-tag">&#10060; Review velocity</span>
-    <span class="signal-tag">&#10060; Photo freshness</span>
-    <span class="signal-tag">&#10060; Service optimization</span>
-    <span class="signal-tag">&#10060; Business activity</span>
-  </div>
-  <p class="problem-punch">If your competitors optimize these better than you, <b>they get the phone call. Not you.</b></p>
+  <h2>Why Your Competitor Gets The Call Instead</h2>
+  <p class="lead">Every day people search for businesses exactly like yours. The problem isn't demand. It's that Google shows someone else first.</p>
   <div class="problem-grid">
     <div class="problem-col">
-      <div class="col-head bad"><span>&#10005;</span> Without management</div>
-      <div class="col-item" style="font-style:italic;color:#8A94A6">Here's exactly what that looks like &mdash; and why Google stops sending you customers.</div>
-      <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>Wrong primary category confuses Google about what you do</div>
-      <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>Weak keyword relevance buries you in search results</div>
-      <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>Outdated photos make you look closed or neglected</div>
-      <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>Inconsistent posting tells Google you've gone quiet</div>
-      <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>Missing services means customers can't find what you offer</div>
-      <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>No system in place to actually generate new reviews</div>
-      <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>Reviews sit unanswered for days or weeks</div>
-      <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>No announcements posted to highlight offers or news</div>
+      <div class="col-head bad"><span>&#10005;</span> Why Businesses Stay Invisible</div>
+      <div class="col-item"><b>&#10060; Incomplete profile</b><span>Google can't tell customers what you offer.</span></div>
+      <div class="col-item"><b>&#10060; Few recent reviews</b><span>New customers don't trust a quiet profile.</span></div>
+      <div class="col-item"><b>&#10060; Old or missing photos</b><span>Customers assume you're inactive.</span></div>
+      <div class="col-item"><b>&#10060; Wrong business categories</b><span>Google isn't sure what you actually do.</span></div>
+      <div class="col-item"><b>&#10060; No recent Google Posts</b><span>Your profile looks abandoned.</span></div>
+      <div class="col-item"><b>&#10060; Unanswered customer reviews</b><span>Customers see no one's paying attention.</span></div>
+      <div class="col-item"><b>&#10060; Inconsistent business information</b><span>Google trusts you less across the web.</span></div>
     </div>
   </div>
+  <p class="problem-punch">If your competitor sends Google stronger signals than you do, <b>they get the customer first.</b></p>
 </div>
 
 <!-- THE 6 LEVERS (WHAT'S INCLUDED) -->
 <div class="section bg-light" id="whats-included">
-  <div class="section-label">WHAT WE BUILT TO SOLVE THIS</div>
-  <h2>The 6-Lever System</h2>
-  <p class="lead">We run all 6 levers every week, so you're the business that shows up first.</p>
+  <div class="section-label">WHAT'S INCLUDED</div>
+  <h2>The 6 Ranking Signals We Improve Every Month</h2>
+  <p class="lead">Every month we improve the signals Google uses to rank local businesses.</p>
+  <p class="lever-framing">We don't "do SEO." We improve the exact signals Google uses to decide which businesses appear first in Maps.</p>
   <div class="services-grid">
-    <div class="svc"><span class="svc-num">1</span><i class="ti ti-camera"></i><div class="svc-title">Make your business the obvious choice</div><div class="svc-desc">At onboarding, we replace your photos with a set built to make your business look like the obvious choice the moment someone lands on your profile.</div></div>
-    <div class="svc"><span class="svc-num">2</span><i class="ti ti-edit"></i><div class="svc-title">Help Google understand exactly what you do</div><div class="svc-desc">We rebuild what's quietly costing you visibility and fix every place your business info is wrong across the web, so Google trusts your listing and ranks you higher every month.</div></div>
-    <div class="svc"><span class="svc-num">3</span><i class="ti ti-speakerphone"></i><div class="svc-title">Keep your profile looking active</div><div class="svc-desc">Weekly posts calibrated to your category, paired with a steady rotation of fresh photos, so you never fall behind the businesses that go quiet.</div></div>
-    <div class="svc"><span class="svc-num">4</span><i class="ti ti-star"></i><div class="svc-title">Build a review engine that outlasts us</div><div class="svc-desc">We build a review growth strategy tailored to your business and run it every week, so the plan keeps working long after we put it in place.</div></div>
-    <div class="svc"><span class="svc-num">5</span><i class="ti ti-message-check"></i><div class="svc-title">Show customers you're paying attention</div><div class="svc-desc">The moment a review comes in, we're on it. Every review — good or bad — gets a fast, professional reply within 24 hours.</div></div>
-    <div class="svc"><span class="svc-num">6</span><i class="ti ti-qrcode"></i><div class="svc-title">Make leaving a review effortless</div><div class="svc-desc">A custom QR code linked straight to your review page — on the counter, on receipts, wherever customers can't miss it — so a review takes ten seconds, not ten minutes.</div></div>
+    <div class="svc"><span class="svc-num">1</span><span class="svc-emoji">&#128247;</span><div class="svc-title">Professional Photos</div><div class="svc-desc">Professional photos increase trust and encourage more customers to click your listing instead of your competitors'.</div></div>
+    <div class="svc"><span class="svc-num">2</span><span class="svc-emoji">&#128205;</span><div class="svc-title">Categories &amp; Services</div><div class="svc-desc">Google can't rank what it doesn't understand.</div></div>
+    <div class="svc"><span class="svc-num">3</span><span class="svc-emoji">&#128221;</span><div class="svc-title">Weekly Google Posts</div><div class="svc-desc">Fresh activity shows Google&mdash;and customers&mdash;that your business is active.</div></div>
+    <div class="svc"><span class="svc-num">4</span><span class="svc-emoji">&#11088;</span><div class="svc-title">Review Growth</div><div class="svc-desc">A steady flow of reviews is one of the strongest local ranking signals.</div></div>
+    <div class="svc"><span class="svc-num">5</span><span class="svc-emoji">&#128172;</span><div class="svc-title">Review Responses</div><div class="svc-desc">Responding quickly builds trust and keeps your profile active.</div></div>
+    <div class="svc"><span class="svc-num">6</span><span class="svc-emoji">&#127978;</span><div class="svc-title">Easy Review Collection</div><div class="svc-desc">A simple QR code turns every happy customer into a five-star review, with zero extra effort.</div></div>
   </div>
+</div>
 
-  <div class="problem-col lever-recap">
-    <div class="col-head good"><span>&#10003;</span> With Local Growth Agency</div>
-    <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>Correct category tells Google exactly what you do</div>
-    <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>Strong keyword relevance gets you found for the right searches</div>
-    <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>Fresh photos signal you're active and open</div>
-    <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>Weekly posts keep Google ranking you higher</div>
-    <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>Complete service list captures every customer search</div>
-    <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>A proven system that generates new reviews every week</div>
-    <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>Every review answered within 24 hours</div>
-    <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>Regular announcements keep customers in the loop</div>
+<!-- PROCESS -->
+<div class="section bg-light">
+  <div class="section-label">HOW IT WORKS</div>
+  <h2>What Happens After You Sign Up</h2>
+  <p class="lead">No guesswork. No confusion. Every client follows the same proven system designed to improve your Google Business Profile over time.</p>
+  <div class="process-track">
+    <div class="process-step">
+      <div class="process-num">1</div>
+      <div class="process-body"><span class="process-tag">15 Minutes</span><h4>Initial Audit</h4><p>We perform a complete audit of your Google Business Profile and identify everything holding it back&mdash;from missing optimization opportunities to issues affecting your local visibility. You'll receive a clear breakdown of what we find before we make any changes.</p></div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">2</div>
+      <div class="process-body"><span class="process-tag">First 4&ndash;7 Days</span><h4>Complete Profile Optimization</h4><p>We optimize every part of your Google Business Profile using our 6-Lever Growth System. This includes your categories, services, business information, photos, profile content, and other key ranking signals to build a stronger foundation for long-term growth.</p></div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">3</div>
+      <div class="process-body"><span class="process-tag">Week 2 Onwards</span><h4>Ongoing Growth Strategy</h4><p>Once your profile is fully optimized, we shift our focus to consistent growth. We publish Google Posts, help strengthen your review strategy, monitor your profile, and continue improving the factors that influence your visibility in Google Maps.</p></div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">4</div>
+      <div class="process-body"><span class="process-tag">Every Month</span><h4>Monthly Optimization &amp; Reporting</h4><p>Google Business Profiles aren't "set and forget." Every month we continue optimizing your profile, monitoring performance, and sending you an easy-to-understand report so you can clearly see how your profile is performing over time.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- GUARANTEE -->
+<div class="guarantee-section" id="guarantee">
+  <div class="guarantee">
+    <div class="guarantee-top">
+      <div class="guarantee-badge">
+        <div class="num">90</div>
+        <div class="lbl">Day growth<br>guarantee</div>
+      </div>
+      <div style="margin-top:4px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#D4A843;margin-bottom:10px">OUR GUARANTEE</div>
+        <h3>The <span>90-Day Growth Guarantee</span></h3>
+        <p style="margin-top:10px">Lock into 90 days and we guarantee more calls, more searches, and more reviews than when you started &mdash; <b style="color:#fff">or we keep working for free until you hit the numbers.</b> The first 30 days build the foundation. Days 31&ndash;60 amplify it. By day 90, the ranking momentum is real and measurable.</p>
+      </div>
+    </div>
+    <div class="guarantee-items">
+      <div class="g-item"><i class="ti ti-phone"></i><div class="g-item-text"><b>More calls</b>Tracked monthly via GBP Insights</div></div>
+      <div class="g-item"><i class="ti ti-search"></i><div class="g-item-text"><b>More searches</b>Profile appearances increase measurably</div></div>
+      <div class="g-item"><i class="ti ti-star"></i><div class="g-item-text"><b>More reviews</b>Steady review velocity from day one</div></div>
+    </div>
   </div>
 </div>
 
@@ -827,76 +837,6 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
   </div>
 </div>
 
-<!-- PROCESS -->
-<div class="section bg-light">
-  <div class="section-label">HOW IT WORKS</div>
-  <h2>Our process</h2>
-  <p class="lead">No guesswork. Every account moves through the same four stages, so you always know what's happening and why.</p>
-  <div class="process-track">
-    <div class="process-step">
-      <div class="process-num">1</div>
-      <div class="process-body"><span class="process-tag">15 Minutes</span><h4>Audit</h4><p>We pull your current rankings, review your competitors in the local 3-pack, and show you exactly what's hurting your visibility &mdash; missing photos, weak categories, thin review count, whatever it is. You see the gaps before we touch anything.</p></div>
-    </div>
-    <div class="process-step">
-      <div class="process-num">2</div>
-      <div class="process-body"><span class="process-tag">4&ndash;7 Days</span><h4>Optimization</h4><p>We rebuild your profile from the ground up: professional photos, corrected categories and business info, and citation cleanup across the web so every listing matches and Google trusts what it's reading.</p></div>
-    </div>
-    <div class="process-step">
-      <div class="process-num">3</div>
-      <div class="process-body"><span class="process-tag">Week 1&ndash;2</span><h4>Growth Strategy</h4><p>We put your custom review, posting, and QR system in place &mdash; tailored to your industry and review history &mdash; so momentum keeps building instead of stalling out after the first month.</p></div>
-    </div>
-    <div class="process-step">
-      <div class="process-num">4</div>
-      <div class="process-body"><span class="process-tag">Ongoing</span><h4>Monthly Improvements</h4><p>Every week we post, respond to reviews, and refine your profile. Every month you get a plain-English report showing calls, searches, and reviews &mdash; so you always know it's working.</p></div>
-    </div>
-  </div>
-</div>
-
-<!-- GUARANTEE -->
-<div class="guarantee-section" id="guarantee">
-  <div class="guarantee">
-    <div class="guarantee-top">
-      <div class="guarantee-badge">
-        <div class="num">90</div>
-        <div class="lbl">Day growth<br>guarantee</div>
-      </div>
-      <div style="margin-top:4px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#D4A843;margin-bottom:10px">OUR GUARANTEE</div>
-        <h3>The <span>90-Day Growth Guarantee</span></h3>
-        <p style="margin-top:10px">Lock into 90 days and we guarantee more calls, more searches, and more reviews than when you started &mdash; <b style="color:#fff">or we keep working for free until you hit the numbers.</b> The first 30 days build the foundation. Days 31&ndash;60 amplify it. By day 90, the ranking momentum is real and measurable.</p>
-      </div>
-    </div>
-    <div class="guarantee-items">
-      <div class="g-item"><i class="ti ti-phone"></i><div class="g-item-text"><b>More calls</b>Tracked monthly via GBP Insights</div></div>
-      <div class="g-item"><i class="ti ti-search"></i><div class="g-item-text"><b>More searches</b>Profile appearances increase measurably</div></div>
-      <div class="g-item"><i class="ti ti-star"></i><div class="g-item-text"><b>More reviews</b>Steady review velocity from day one</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- WHY US -->
-<div class="section" id="why-us">
-  <details class="why-details">
-    <summary class="why-summary">
-      <span>
-        <span class="why-summary-label">WHY US</span>
-        <span class="why-summary-title">Why Local Growth Agency</span>
-      </span>
-      <span class="why-caret">&#9662;</span>
-    </summary>
-    <div class="why-content">
-      <p class="lead">We're not a software tool. We're not a faceless agency. We manage your Google presence like it's our own business.</p>
-      <div class="why-grid">
-        <div class="why-card"><i class="ti ti-shield-check"></i><div class="why-title">100% done for you</div><div class="why-desc">Every photo, post, review, and report handled weekly. You don't touch a thing.</div></div>
-        <div class="why-card"><i class="ti ti-file-description"></i><div class="why-title">Transparent reporting</div><div class="why-desc">A real PDF every month showing calls, clicks, and search appearances. No fluff.</div></div>
-        <div class="why-card"><i class="ti ti-trending-up"></i><div class="why-title">Compounding growth</div><div class="why-desc">Each week builds on the last. By month 3, rankings, reviews, and calls all accelerate.</div></div>
-        <div class="why-card"><i class="ti ti-users"></i><div class="why-title">Limited roster</div><div class="why-desc">We cap accounts per manager so your business always gets real, focused attention.</div></div>
-        <div class="why-card"><i class="ti ti-award"></i><div class="why-title">Guaranteed results</div><div class="why-desc">Lock in 90 days and we guarantee more calls, searches, and reviews &mdash; or we work free.</div></div>
-      </div>
-    </div>
-  </details>
-</div>
-
 <!-- ROI STRIP -->
 <div class="roi-strip">
   <span class="roi-strip-icon">&#36;</span>
@@ -907,7 +847,7 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
 <div class="testimonial-section">
   <div class="cta-testimonial">
     <div class="testimonial-quote-mark">"</div>
-    <div class="testimonial-text">Honestly, I was pretty skeptical at first since our Google profile had already been set up for a while. I didn't think tweaking it would do much. I was completely wrong. Our phone has been ringing consistently with actual, high-quality local leads, and the whole thing paid for itself way faster than I expected. They just handle it all in the background so I don't have to.</div>
+    <div class="testimonial-text">I'll be honest, I didn't expect much at first because our Google Business Profile had been around for years. I figured it was already as good as it was going to get. After they optimized and started managing it, we noticed more people finding us on Google, more customers coming into the store, and a steady increase in calls asking about products. The best part is I don't have to think about it anymore, they handle everything behind the scenes.</div>
     <div class="testimonial-author">
       <div class="testimonial-avatar">SF</div>
       <div>
@@ -1012,6 +952,29 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
   </div>
 
   <div class="cta-disclaimer">Note: Our systems require a one-time $500 onboarding investment. This covers your professional location photoshoot, comprehensive local citation cleanup, and custom-designed physical QR review standees.</div>
+</div>
+
+<!-- WHY US -->
+<div class="section" id="why-us">
+  <details class="why-details">
+    <summary class="why-summary">
+      <span>
+        <span class="why-summary-label">WHY US</span>
+        <span class="why-summary-title">Why Local Growth Agency</span>
+      </span>
+      <span class="why-caret">&#9662;</span>
+    </summary>
+    <div class="why-content">
+      <p class="lead">We're not a software tool. We're not a faceless agency. We manage your Google presence like it's our own business.</p>
+      <div class="why-grid">
+        <div class="why-card"><i class="ti ti-shield-check"></i><div class="why-title">100% done for you</div><div class="why-desc">Every photo, post, review, and report handled weekly. You don't touch a thing.</div></div>
+        <div class="why-card"><i class="ti ti-file-description"></i><div class="why-title">Transparent reporting</div><div class="why-desc">A real PDF every month showing calls, clicks, and search appearances. No fluff.</div></div>
+        <div class="why-card"><i class="ti ti-trending-up"></i><div class="why-title">Compounding growth</div><div class="why-desc">Each week builds on the last. By month 3, rankings, reviews, and calls all accelerate.</div></div>
+        <div class="why-card"><i class="ti ti-users"></i><div class="why-title">Limited roster</div><div class="why-desc">We cap accounts per manager so your business always gets real, focused attention.</div></div>
+        <div class="why-card"><i class="ti ti-award"></i><div class="why-title">Guaranteed results</div><div class="why-desc">Lock in 90 days and we guarantee more calls, searches, and reviews &mdash; or we work free.</div></div>
+      </div>
+    </div>
+  </details>
 </div>
 
 <!-- FAQ -->
