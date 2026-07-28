@@ -126,6 +126,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 1
 /* METRICS SHOWCASE */
 .dashboard-card{background:#fff;border-radius:24px;padding:26px 18px;box-shadow:0 24px 56px -22px rgba(11,31,58,.22);max-width:520px;margin:32px auto 0}
 .dashboard-card-title{font-size:15px;font-weight:800;color:#0B1F3A;text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #F1F3F4}
+.dashboard-badge{display:block;text-align:center;font-size:10px;font-weight:800;letter-spacing:1.2px;color:#0E8A7A;background:rgba(14,138,122,.1);border:1px solid rgba(14,138,122,.25);border-radius:20px;padding:4px 12px;margin:0 auto 12px;width:fit-content}
 .metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .metric-card{background:#F8FAFC;border:1px solid #F1F3F4;border-radius:14px;padding:12px;text-align:center}
 .metric-card-title{font-size:11.5px;font-weight:700;color:#0B1F3A;margin-bottom:9px;letter-spacing:.2px}
@@ -146,6 +147,10 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 1
 .bg-light{background:#F7F8FA}
 
 /* PROBLEM */
+.signal-tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.signal-tag{font-size:12px;font-weight:600;color:#B91C1C;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:20px;padding:6px 12px;white-space:nowrap}
+.problem-punch{font-size:14.5px;color:#4A5568;line-height:1.6;margin-bottom:20px}
+.problem-punch b{color:#0B1F3A;font-weight:800}
 .problem-grid{display:grid;grid-template-columns:1fr;gap:16px}
 .problem-col{border-radius:12px;overflow:hidden;border:1px solid #E2E8F0}
 .col-head{padding:14px 18px;font-size:13px;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px}
@@ -330,6 +335,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 1
 .testimonial-avatar{width:38px;height:38px;border-radius:50%;background:rgba(212,168,67,.15);border:1px solid rgba(212,168,67,.3);display:flex;align-items:center;justify-content:center;color:#D4A843;font-weight:700;font-size:14px;flex-shrink:0}
 .testimonial-name{font-size:13px;font-weight:700;color:#fff}
 .testimonial-role{font-size:11.5px;color:#94A3B8}
+.testimonial-stars{color:#fbbc04;letter-spacing:1px}
 
 /* WHY */
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -377,68 +383,6 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 1
 .testimonial-section .cta-testimonial{display:block;max-width:480px;margin:0 auto}
 .cta-testimonial .testimonial-quote-mark{font-size:36px;color:#D4A843;line-height:1;font-family:Georgia,serif;margin-bottom:6px}
 .cta-testimonial .testimonial-text{font-size:13.5px;color:#E2E8F0;line-height:1.7;margin-bottom:14px}
-
-/* TESTIMONIAL SLIDER */
-.testimonial-slider-wrapper {
-  position: relative;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(212,168,67,.2);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-top: 20px;
-}
-.testimonial-slide {
-  display: none;
-  padding: 24px 22px 60px;
-  text-align: left;
-  animation: fadeSlideIn 0.4s ease forwards;
-}
-.testimonial-slide.active {
-  display: block;
-}
-@keyframes fadeSlideIn {
-  from { opacity: 0; transform: translateX(10px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-.testimonial-slide .testimonial-quote-mark {
-  font-size: 36px;
-  color: #D4A843;
-  line-height: 1;
-  font-family: Georgia, serif;
-  margin-bottom: 6px;
-}
-.testimonial-slide .testimonial-text {
-  font-size: 13.5px;
-  color: #E2E8F0;
-  line-height: 1.7;
-  margin-bottom: 14px;
-}
-.slider-nav {
-  position: absolute;
-  bottom: 16px;
-  right: 20px;
-  display: flex;
-  gap: 8px;
-}
-.slider-nav button {
-  background: transparent;
-  border: 1px solid rgba(212,168,67,.4);
-  color: #D4A843;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.slider-nav button:hover {
-  background: rgba(212,168,67,.1);
-}
-@media(min-width: 700px) {
-  .testimonial-slider-wrapper { margin-top: 80px; flex: 1; }
-}
 
 /* ROI STRIP */
 .roi-strip {
@@ -575,8 +519,7 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
   .qa-grid{grid-template-columns:repeat(3,1fr)}
   .why-grid{grid-template-columns:repeat(3,1fr)}
   .cta-section{padding:72px 40px}
-  .cta-layout{flex-direction:row;align-items:flex-start;max-width:900px;margin:0 auto}
-  .cta-layout .af-card{flex:1.3}
+  .cta-layout{max-width:600px;margin:0 auto}
   .footer-inner{flex-direction:row;justify-content:space-between;text-align:left}
   .af-body{padding:34px 36px 32px}
   .af-head{padding:30px 36px 22px}
@@ -603,7 +546,7 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
 <div class="hero">
   <div class="hero-label">Google Business Profile Specialists &bull; Hundreds of Local Businesses Optimized</div>
   <h1>Stop Losing Customers to Competitors <span>Ranking Above You</span> on Google Maps</h1>
-  <p>We optimize and manage your Google Business Profile to help you rank higher, earn more 5-star reviews, and generate more calls&mdash;without spending more on ads.</p>
+  <p>We fully manage and optimize your Google Business Profile so you rank higher, generate more phone calls, and win more customers from Google Maps.</p>
 
   <div class="hero-btns">
     <button class="btn-gold" onclick="document.querySelector('#audit').scrollIntoView({behavior:'smooth'})">Get My Free Growth Audit &rarr;</button>
@@ -611,7 +554,7 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
   <div class="hero-scarcity">Only 1 spot available per city to prevent competitor conflicts.</div>
 
   <div class="hero-card">
-    <div class="hero-card-tag">Real Google Business Profile Insights</div>
+    <div class="hero-card-tag">Actual Google Business Profile Results (Client anonymized)</div>
     <div class="hero-card-row">
       <div class="hero-card-col">
         <div class="hero-card-head before">BEFORE</div>
@@ -667,6 +610,7 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
   <p class="lead">These screenshots are taken directly from Google Business Profile Performance&mdash;not third-party software or estimated data.</p>
 
   <div class="dashboard-card">
+    <div class="dashboard-badge">REAL CLIENT DATA</div>
     <div class="dashboard-card-title">July 2026 Performance Snapshot</div>
     <div class="metrics-grid" id="metricsGrid">
     <div class="metric-card">
@@ -722,12 +666,21 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
 <!-- PROBLEM -->
 <div class="section" id="services">
   <div class="section-label">THE PROBLEM</div>
-  <h2>The Problem Isn't That You're a Bad Business.</h2>
-  <p class="lead">It's that Google has no reason to rank you above competitors. Here's what's actually costing you customers:</p>
+  <h2>Why Businesses Lose Customers Every Day</h2>
+  <p class="lead">Even if you're the best business in town, Google won't rank you just because you deserve it. Instead, Google looks at hundreds of local ranking signals like:</p>
+  <div class="signal-tags">
+    <span class="signal-tag">&#10060; Category relevance</span>
+    <span class="signal-tag">&#10060; Review quality</span>
+    <span class="signal-tag">&#10060; Review velocity</span>
+    <span class="signal-tag">&#10060; Photo freshness</span>
+    <span class="signal-tag">&#10060; Service optimization</span>
+    <span class="signal-tag">&#10060; Business activity</span>
+  </div>
+  <p class="problem-punch">If your competitors optimize these better than you, <b>they get the phone call. Not you.</b></p>
   <div class="problem-grid">
     <div class="problem-col">
       <div class="col-head bad"><span>&#10005;</span> Without management</div>
-      <div class="col-item" style="font-style:italic;color:#8A94A6">All of this tells Google you're not active &mdash; and Google stops sending you customers.</div>
+      <div class="col-item" style="font-style:italic;color:#8A94A6">Here's exactly what that looks like &mdash; and why Google stops sending you customers.</div>
       <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>Wrong primary category confuses Google about what you do</div>
       <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>Weak keyword relevance buries you in search results</div>
       <div class="col-item"><span class="col-icon" style="color:#DC2626">&#8722;</span>Outdated photos make you look closed or neglected</div>
@@ -764,31 +717,6 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
     <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>A proven system that generates new reviews every week</div>
     <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>Every review answered within 24 hours</div>
     <div class="col-item"><span class="col-icon" style="color:#0E8A7A">&#10003;</span>Regular announcements keep customers in the loop</div>
-  </div>
-</div>
-
-<!-- PROCESS -->
-<div class="section bg-light">
-  <div class="section-label">HOW IT WORKS</div>
-  <h2>Our process</h2>
-  <p class="lead">No guesswork. Every account moves through the same four stages, so you always know what's happening and why.</p>
-  <div class="process-track">
-    <div class="process-step">
-      <div class="process-num">1</div>
-      <div class="process-body"><span class="process-tag">15 Minutes</span><h4>Audit</h4><p>We pull your current rankings, review your competitors in the local 3-pack, and show you exactly what's hurting your visibility &mdash; missing photos, weak categories, thin review count, whatever it is. You see the gaps before we touch anything.</p></div>
-    </div>
-    <div class="process-step">
-      <div class="process-num">2</div>
-      <div class="process-body"><span class="process-tag">4&ndash;7 Days</span><h4>Optimization</h4><p>We rebuild your profile from the ground up: professional photos, corrected categories and business info, and citation cleanup across the web so every listing matches and Google trusts what it's reading.</p></div>
-    </div>
-    <div class="process-step">
-      <div class="process-num">3</div>
-      <div class="process-body"><span class="process-tag">Week 1&ndash;2</span><h4>Growth Strategy</h4><p>We put your custom review, posting, and QR system in place &mdash; tailored to your industry and review history &mdash; so momentum keeps building instead of stalling out after the first month.</p></div>
-    </div>
-    <div class="process-step">
-      <div class="process-num">4</div>
-      <div class="process-body"><span class="process-tag">Ongoing</span><h4>Monthly Improvements</h4><p>Every week we post, respond to reviews, and refine your profile. Every month you get a plain-English report showing calls, searches, and reviews &mdash; so you always know it's working.</p></div>
-    </div>
   </div>
 </div>
 
@@ -899,6 +827,31 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
   </div>
 </div>
 
+<!-- PROCESS -->
+<div class="section bg-light">
+  <div class="section-label">HOW IT WORKS</div>
+  <h2>Our process</h2>
+  <p class="lead">No guesswork. Every account moves through the same four stages, so you always know what's happening and why.</p>
+  <div class="process-track">
+    <div class="process-step">
+      <div class="process-num">1</div>
+      <div class="process-body"><span class="process-tag">15 Minutes</span><h4>Audit</h4><p>We pull your current rankings, review your competitors in the local 3-pack, and show you exactly what's hurting your visibility &mdash; missing photos, weak categories, thin review count, whatever it is. You see the gaps before we touch anything.</p></div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">2</div>
+      <div class="process-body"><span class="process-tag">4&ndash;7 Days</span><h4>Optimization</h4><p>We rebuild your profile from the ground up: professional photos, corrected categories and business info, and citation cleanup across the web so every listing matches and Google trusts what it's reading.</p></div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">3</div>
+      <div class="process-body"><span class="process-tag">Week 1&ndash;2</span><h4>Growth Strategy</h4><p>We put your custom review, posting, and QR system in place &mdash; tailored to your industry and review history &mdash; so momentum keeps building instead of stalling out after the first month.</p></div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">4</div>
+      <div class="process-body"><span class="process-tag">Ongoing</span><h4>Monthly Improvements</h4><p>Every week we post, respond to reviews, and refine your profile. Every month you get a plain-English report showing calls, searches, and reviews &mdash; so you always know it's working.</p></div>
+    </div>
+  </div>
+</div>
+
 <!-- GUARANTEE -->
 <div class="guarantee-section" id="guarantee">
   <div class="guarantee">
@@ -954,12 +907,12 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
 <div class="testimonial-section">
   <div class="cta-testimonial">
     <div class="testimonial-quote-mark">"</div>
-    <div class="testimonial-text">We're getting significantly more inbound phone calls and our reviews keep growing effortlessly. The 90-day ROI has been massive. Highly recommend Local Growth Agency!</div>
+    <div class="testimonial-text">Honestly, I was pretty skeptical at first since our Google profile had already been set up for a while. I didn't think tweaking it would do much. I was completely wrong. Our phone has been ringing consistently with actual, high-quality local leads, and the whole thing paid for itself way faster than I expected. They just handle it all in the background so I don't have to.</div>
     <div class="testimonial-author">
-      <div class="testimonial-avatar">VC</div>
+      <div class="testimonial-avatar">SF</div>
       <div>
-        <div class="testimonial-name">Verified Client</div>
-        <div class="testimonial-role">Local Business Owner &bull; ★★★★★</div>
+        <div class="testimonial-name">Shoe Farm</div>
+        <div class="testimonial-role">Visalia, CA &bull; <span class="testimonial-stars">★★★★★</span></div>
       </div>
     </div>
   </div>
@@ -1056,56 +1009,6 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
       </div>
     </div>
 
-    <div class="testimonial-slider-wrapper">
-
-      <!-- Slide 1 -->
-      <div class="testimonial-slide active">
-        <div class="testimonial-quote-mark">"</div>
-        <div class="testimonial-text">We're getting significantly more inbound phone calls and our reviews keep growing effortlessly. The 90-day ROI has been massive. Highly recommend Local Growth Agency!</div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">VC</div>
-          <div>
-            <div class="testimonial-name">Verified Client</div>
-            <div class="testimonial-role">Local Business Owner &bull; ★★★★★</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="testimonial-slide">
-        <div class="testimonial-quote-mark">"</div>
-        <div class="testimonial-text">Honestly I was a little skeptical since our profile was already up, but these guys actually know what they're doing. We've seen a noticeable bump in foot traffic, and people literally walk in saying they found us on Maps. Worth every penny.</div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">SF</div>
-          <div>
-            <div class="testimonial-name">Shoe Farm</div>
-            <div class="testimonial-role">Visalia, CA &bull; ★★★★★</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="testimonial-slide">
-        <div class="testimonial-quote-mark">"</div>
-        <div class="testimonial-text">We used to barely get any action from Google. It took a few weeks to really kick in, but now our phone rings consistently with actual local jobs instead of spam. They handle the whole thing so I can just focus on the work.</div>
-        <div class="testimonial-author">
-          <div class="testimonial-author" style="display:flex; align-items:center; gap:10px;">
-            <div class="testimonial-avatar">LC</div>
-            <div>
-              <div class="testimonial-name">Local Contractor</div>
-              <div class="testimonial-role">Service Business &bull; ★★★★★</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navigation Arrows -->
-      <div class="slider-nav">
-        <button type="button" onclick="changeSlide(-1)">&#8592;</button>
-        <button type="button" onclick="changeSlide(1)">&#8594;</button>
-      </div>
-
-    </div>
   </div>
 
   <div class="cta-disclaimer">Note: Our systems require a one-time $500 onboarding investment. This covers your professional location photoshoot, comprehensive local citation cleanup, and custom-designed physical QR review standees.</div>
@@ -1306,14 +1209,14 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
       document.getElementById('afResult').innerHTML =
         '<i class="ti ti-mail-check"></i>' +
         '<h4>Application Received!</h4>' +
-        '<p>Thanks &mdash; you\\'re on our radar. Our team reviews every application, and we\\'ll follow up personally within 24 hours, including with free tips for your growth stage even if the full program isn\\'t the right fit yet.</p>';
+        "<p>Thanks &mdash; you're on our radar. Our team reviews every application, and we'll follow up personally within 24 hours, including with free tips for your growth stage even if the full program isn't the right fit yet.</p>";
     } else {
       if (typeof fbq === 'function') fbq('track', 'Lead');
       window.location.href = 'https://calendly.com/thelocalgrowthagency/30min';
     }
   }
 
-  // Sticky mobile CTA: show after hero, hide once the real form/footer is in view
+  // Sticky mobile CTA
   function initStickyCta(){
     var bar = document.getElementById('stickyMobileCta');
     var hero = document.querySelector('.hero');
@@ -1348,24 +1251,6 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
     });
   });
 
-  // Testimonial Slider Logic
-  window.changeSlide = function(direction) {
-    const slides = document.querySelectorAll('.testimonial-slide');
-    let activeIndex = 0;
-
-    slides.forEach((slide, index) => {
-      if (slide.classList.contains('active')) {
-        activeIndex = index;
-        slide.classList.remove('active');
-      }
-    });
-
-    let newIndex = activeIndex + direction;
-    if (newIndex >= slides.length) newIndex = 0;
-    if (newIndex < 0) newIndex = slides.length - 1;
-
-    slides[newIndex].classList.add('active');
-  };
 })();
 </script>
 
