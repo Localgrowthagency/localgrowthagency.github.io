@@ -915,7 +915,9 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
                 <option value="" disabled selected>Select a range</option>
                 <option>Under $10,000/mo</option>
                 <option>$10,000 - $30,000/mo</option>
-                <option>$30,000+/mo</option>
+                <option>$30,000 - $50,000/mo</option>
+                <option>$50,000 - $100,000/mo</option>
+                <option>$100,000+/mo</option>
               </select>
               <div class="af-error" id="err_monthlyRevenue">Please select a revenue range.</div>
             </div>
@@ -1043,7 +1045,7 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
 
 <script>
 (function(){
-  var WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/28345056/44fx3hc/";
+  var FORMSPREE_URL = "https://formspree.io/f/mzdqrqan";
   var TOTAL_STEPS = 4;
   var currentStep = 1;
   var OPTIONAL_FIELDS = [];
@@ -1171,29 +1173,39 @@ footer{background:#061428;padding:24px;border-top:1px solid #1E3A5F}
     backBtn.disabled = true;
     nextBtn.textContent = 'Submitting...';
 
-    fetch(WEBHOOK_URL, {
+    // Send all data to Formspree so an email is received regardless of revenue
+    fetch(FORMSPREE_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
       body: JSON.stringify(data)
     })
-    .catch(function(err){
-      console.error('Webhook submission error:', err);
+    .then(function(response) {
+      handlePostSubmit(data);
     })
-    .finally(function(){
+    .catch(function(err){
+      console.error('Form submission error:', err);
+      // Fallback: still route the user even if the form submission hangs
       handlePostSubmit(data);
     });
   }
 
   function handlePostSubmit(data){
     if (data.monthlyRevenue === 'Under $10,000/mo'){
+      // Unqualified Lead: Show Thank You message, no Pixel Lead fired
       showStep('result');
       document.getElementById('afNav').style.display = 'none';
       document.getElementById('afResult').innerHTML =
         '<i class="ti ti-mail-check"></i>' +
         '<h4>Application Received!</h4>' +
-        "<p>Thanks &mdash; you're on our radar. Our team reviews every application, and we'll follow up personally within 24 hours, including with free tips for your growth stage even if the full program isn't the right fit yet.</p>";
+        "<p>Thanks for applying. Our team is currently reviewing your submission to see if we're a good fit, and we'll reach out via email shortly.</p>";
     } else {
-      if (typeof fbq === 'function') fbq('track', 'Lead');
+      // Qualified Lead: Fire Meta Pixel and Redirect to Calendly
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
       window.location.href = 'https://calendly.com/thelocalgrowthagency/30min';
     }
   }
